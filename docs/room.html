@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="課室詳情 — 學校節能計劃" />
+  <title>課室詳情</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">⚡</div>
+        <div>
+          <h1 id="project-name">學校節能計劃</h1>
+          <p class="sub" id="school-name">世界龍岡學校劉皇發中學</p>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span id="mode-badge" class="badge demo">🧪 示範模式 (Demo)</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="detail-root">
+    <a class="back-link" href="index.html">← 返回課室總覽</a>
+
+    <div class="detail-header">
+      <div>
+        <h2 id="room-title">—</h2>
+        <p class="meta-line" id="room-meta">—</p>
+      </div>
+      <div id="status-banner" class="status-banner gray">載入緊…</div>
+    </div>
+
+    <section class="detail-grid" aria-label="即時讀數">
+      <div class="metric-card">
+        <div class="m-label">溫度</div>
+        <div class="m-value"><span id="m-temp">—</span> <span class="m-unit">°C</span></div>
+      </div>
+      <div class="metric-card">
+        <div class="m-label">濕度</div>
+        <div class="m-value"><span id="m-hum">—</span> <span class="m-unit">%</span></div>
+      </div>
+      <div class="metric-card">
+        <div class="m-label">佔用（PIR）</div>
+        <div class="m-value" id="m-occ">—</div>
+      </div>
+      <div class="metric-card">
+        <div class="m-label">最後更新</div>
+        <div class="m-value" style="font-size:1.05rem;margin-top:0.5rem" id="m-updated">—</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>💡 節能建議</h3>
+      <div class="tip-box" id="tip-text">—</div>
+    </section>
+
+    <section class="panel">
+      <h3>📈 近期溫濕度趨勢</h3>
+      <div class="chart-wrap">
+        <canvas id="history-chart" aria-label="溫濕度歷史圖表"></canvas>
+      </div>
+      <p style="margin:0.75rem 0 0;font-size:0.8rem;color:var(--text-muted)">
+        示範模式會模擬最近約半小時數據；接上 Firebase 後會累積瀏覽器端緩存嘅歷史點。
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>世界龍岡學校劉皇發中學 · 學校節能計劃</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/room.js"></script>
+</body>
+</html>

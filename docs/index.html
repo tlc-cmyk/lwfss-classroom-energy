@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="學校節能計劃 — 課室即時溫濕度與佔用監察" />
+  <title>學校節能計劃</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">⚡</div>
+        <div>
+          <h1 id="project-name">學校節能計劃</h1>
+          <p class="sub" id="school-name">世界龍岡學校劉皇發中學</p>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span id="mode-badge" class="badge demo">🧪 示範模式 (Demo)</span>
+        <span id="last-updated">更新：—</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats-bar" aria-label="統計摘要">
+      <div class="stat-card"><div class="num" id="stat-total">0</div><div class="label">課室總數</div></div>
+      <div class="stat-card ok"><div class="num" id="stat-ok">0</div><div class="label">正常</div></div>
+      <div class="stat-card warn"><div class="num" id="stat-warn">0</div><div class="label">偏高／異常</div></div>
+      <div class="stat-card hot"><div class="num" id="stat-hot">0</div><div class="label">過熱</div></div>
+      <div class="stat-card idle"><div class="num" id="stat-idle">0</div><div class="label">無人／閒置</div></div>
+      <div class="stat-card offline"><div class="num" id="stat-offline">0</div><div class="label">離線</div></div>
+      <div class="stat-card occ"><div class="num" id="stat-occ">0</div><div class="label">目前有人</div></div>
+    </section>
+
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="搜尋課室名稱／編號…" aria-label="搜尋課室" />
+      <select id="filter-status" aria-label="狀態篩選">
+        <option value="all">全部狀態</option>
+        <option value="ok">正常</option>
+        <option value="warn">偏高／異常</option>
+        <option value="hot">過熱</option>
+        <option value="idle">無人／閒置</option>
+        <option value="offline">離線</option>
+      </select>
+      <select id="filter-floor" aria-label="樓層篩選">
+        <option value="all">全部樓層</option>
+      </select>
+      <div class="legend" aria-label="圖例">
+        <span><i class="dot green"></i>正常</span>
+        <span><i class="dot orange"></i>偏高／異常</span>
+        <span><i class="dot red"></i>過熱／離線</span>
+        <span><i class="dot gray"></i>無人／閒置</span>
+      </div>
+    </div>
+
+    <section id="room-grid" class="room-grid" aria-label="課室一覽">
+      <div class="loading">載入緊…</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>世界龍岡學校劉皇發中學 · 學校節能計劃 · ESP32 課室監察系統</p>
+    <p>示範模式會自動模擬 40 間課室數據；接上 Firebase 後可改為即時硬件數據。</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/overview.js"></script>
+</body>
+</html>

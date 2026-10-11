@@ -1,0 +1,41 @@
+#pragma once
+/**
+ * 複製呢個檔做 config.h，再填入你嘅設定。
+ * config.h 已加入 .gitignore，唔好 commit 密碼。
+ *
+ * cp config.h.example config.h
+ */
+
+// ── 課室識別（要同網站 docs/js/config.js 入面 rooms[].roomId 一致）──
+#define ROOM_ID   "R01"
+#define ROOM_NAME "1A"
+
+// ── Wi-Fi ──
+#define WIFI_SSID     "YourSchoolWiFi"
+#define WIFI_PASSWORD "YourPassword"
+
+// ── Firebase Realtime Database ──
+// 例：https://your-project-default-rtdb.asia-southeast1.firebasedatabase.app
+#define FIREBASE_HOST "your-project-default-rtdb.asia-southeast1.firebasedatabase.app"
+// 資料庫密鑰（Database secret）或裝置用 legacy token；生產環境建議用更安全方式
+#define FIREBASE_AUTH "YOUR_DATABASE_SECRET_OR_TOKEN"
+// 寫入路徑：/rooms/R01.json
+#define FIREBASE_PATH "/rooms/" ROOM_ID
+
+// ── 感測器腳位（ESP32-S3 DevKit 常用；ESP32 經典板可改）──
+// DHT22 資料腳
+#define PIN_DHT   4
+// PIR 輸出腳（HIGH = 偵測到人）
+#define PIN_PIR   5
+
+// DHT 類型：DHT22 或 DHT11
+#define DHT_TYPE  DHT22
+
+// ── 上報間隔（毫秒）──
+#define REPORT_INTERVAL_MS      45000UL   // 正常每 45 秒
+#define OCCUPANCY_DEBOUNCE_MS   3000UL    // 佔用狀態穩定幾耐先當改變
+#define WIFI_RETRY_MS           10000UL
+
+// ── 可選：板載 LED（狀態指示）──
+#define PIN_LED   2
+#define LED_ACTIVE_HIGH 1
